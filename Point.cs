@@ -59,6 +59,7 @@ namespace ConsoleApp
 
         public void Translate(double dx, double dy)
         {
+            //Move by dx horizontally, dy vertically
             this._x += dx;
             this._y += dy;
             Console.WriteLine("Point({0};{1}) moved to ({2}; {3})", _x - dx, _y - dy, _x, _y);
@@ -66,6 +67,7 @@ namespace ConsoleApp
 
         public void Scale (double factor)
         {
+            //Scale by factor
             this._x *= factor;
             this._y *= factor;
             Console.WriteLine("Point({0};{1}) scaled to ({2}; {3}), Factor = {4}", _x / factor, _y / factor, _x, _y, factor);
@@ -73,6 +75,7 @@ namespace ConsoleApp
 
         public void Centre_rotate(double angle)
         {
+            //Rotate around origin (0, 0) by angle
             _x = this._rho * Math.Cos(this._theta + angle);
             _y = this._rho * Math.Sin(this._theta + angle);
             Console.WriteLine("Point({0},{1})", _x, _y);
@@ -80,6 +83,7 @@ namespace ConsoleApp
 
         public void Rotate(Point p, double angle)
         {
+            //Rotate around p by angle
             Point B = new Point(_x - p._x, _y - p._y);
             B.Centre_rotate(angle);
             B._x += p._x;
